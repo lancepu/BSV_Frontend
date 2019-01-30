@@ -6,7 +6,7 @@ const apiEndpoint = `${apiUrl}/login`;
 const tokenKey = "token";
 
 // this gets rid of bidirectional dependencies
-// http.setJwt(getJwt());
+http.setJwt(getJwt());
 
 export async function login(email, password) {
   const { data: jwt } = await http.post(apiEndpoint, { email, password });

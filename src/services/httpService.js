@@ -22,17 +22,17 @@ axios.interceptors.response.use(
   }
 );
 
-// function setJwt(jwt) {
-//   // if theres a token, all axios requests will include the token in the 'x-auth-token' header
-//   // const jwt = auth.getJwt();
-//   // if (jwt)
-//   axios.defaults.headers.common["x-auth-token"] = jwt;
-// }
+function setJwt(jwt) {
+  // if theres a token, all axios requests will include the token in the 'x-auth-token' header
+  // const jwt = auth.getJwt();
+  // if (jwt)
+  axios.defaults.headers.common["x-auth-token"] = jwt;
+}
 
 export default {
   get: axios.get,
   post: axios.post,
   put: axios.put,
-  delete: axios.delete
-  //setJwt
+  delete: axios.delete,
+  setJwt
 };

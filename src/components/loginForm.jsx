@@ -3,6 +3,7 @@ import Joi from "joi-browser";
 import Form from "./common/form";
 import auth from "../services/authService";
 import { Redirect } from "react-router-dom";
+import { toast } from "react-toastify";
 
 class LoginForm extends Form {
   state = {
@@ -30,9 +31,7 @@ class LoginForm extends Form {
       window.location = state ? state.from.pathname : "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
-        const errors = { ...this.state.errors };
-        errors.email = ex.response.data;
-        this.setState({ errors });
+        toast.error(ex.response.data);
       }
     }
   };
