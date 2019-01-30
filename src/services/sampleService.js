@@ -23,7 +23,14 @@ export function submitSample(sample) {
 }
 
 export function verifySample(sample) {
-  return http.put(verifyEndpoint, sample);
+  return http.put(verifyEndpoint, {
+    labno: sample.labno,
+    preprocess_comment: sample.preprocessComment,
+    preprocess_volume: sample.preprocessVolume,
+    verify_user_id: sample.user,
+    tube_color_id: sample.tubeColor,
+    visual_inspect_id: sample.visualInspect
+  });
 }
 
 export function ppvSample(sample) {

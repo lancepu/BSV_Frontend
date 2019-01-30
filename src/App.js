@@ -5,6 +5,7 @@ import Logout from "./components/common/logout";
 import NavBar from "./components/navbar";
 import NotFound from "./components/notFound";
 import SampleForm from "./components/sampleForm";
+import verifyForm from "./components/verifyForm";
 import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
 // import ProtectedRoute from "./components/common/protectedRoute";
@@ -34,6 +35,7 @@ class App extends Component {
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
             <Route path="/sample/submit" component={SubmitForm} />
+            <Route path="/sample/verify" component={verifyForm} />
             {/* <ProtectedRoute path="/movies/:id" component={SampleForm} />
             <Route
               // this is how to pass props to route, use render, and the {...props} is because there are some
