@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { toast } from "react-toastify";
 import { getMovies, deleteMovie } from "../services/movieService";
-import { getGenres } from "../services/genreService";
 import { Link } from "react-router-dom";
 import Pagination from "./common/pagination";
 import paginate from "../utils/paginate";
@@ -22,13 +21,13 @@ class Movies extends Component {
   };
 
   async componentDidMount() {
-    const { data } = await getGenres();
-    console.log(data);
-    const { data: movies } = await getMovies();
-    console.log(movies);
-    // using object destructuring to insert a custome 'All Genres' to the front of the array
-    const genres = [{ _id: "", name: "All Genres" }, ...data];
-    this.setState({ movies, genres });
+    // const { data } = await getGenres();
+    // console.log(data);
+    // const { data: movies } = await getMovies();
+    // console.log(movies);
+    // // using object destructuring to insert a custome 'All Genres' to the front of the array
+    // const genres = [{ _id: "", name: "All Genres" }, ...data];
+    // this.setState({ movies, genres });
   }
 
   handleDelete = async movie => {
