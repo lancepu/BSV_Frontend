@@ -5,7 +5,7 @@ const NavBar = ({ user }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to="#">
-        Vidly
+        BSV
       </Link>
       <button
         className="navbar-toggler"
@@ -18,19 +18,8 @@ const NavBar = ({ user }) => {
       >
         <span className="navbar-toggler-icon" />
       </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
-          <NavLink className="nav-link" to="/movies">
-            Movies
-          </NavLink>
-          <NavLink className="nav-link" to="/rental">
-            Rental
-          </NavLink>
-          <NavLink className="nav-link" to="/customers">
-            Customers
-          </NavLink>
-        </ul>
 
+      <div className="collapse navbar-collapse" id="navbarNav">
         {/* only render the login and register links when there's no user logged in */}
         {!user && (
           <ul className="navbar-nav ml-auto">
@@ -45,15 +34,31 @@ const NavBar = ({ user }) => {
         )}
 
         {user && (
-          <ul className="navbar-nav ml-auto">
-            <NavLink className="nav-link" to="/profile">
-              {user.name}
-            </NavLink>
-
-            <NavLink className="nav-link" to="/logout">
-              Logout
-            </NavLink>
-          </ul>
+          <React.Fragment>
+            <ul className="navbar-nav">
+              <NavLink className="nav-link" to="/sample/submit">
+                Sample Submit
+              </NavLink>
+              {user.Role.name !== "Accessioner" && (
+                <React.Fragment>
+                  <NavLink className="nav-link" to="/sample/verify">
+                    Sample Verify
+                  </NavLink>
+                  <NavLink className="nav-link" to="/sample/ppv">
+                    PPV
+                  </NavLink>
+                </React.Fragment>
+              )}
+            </ul>
+            <ul className="navbar-nav ml-auto">
+              <NavLink className="nav-link" to="/profile">
+                {user.name}
+              </NavLink>
+              <NavLink className="nav-link" to="/logout">
+                Logout
+              </NavLink>
+            </ul>
+          </React.Fragment>
         )}
       </div>
     </nav>

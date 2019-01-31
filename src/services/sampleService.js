@@ -34,7 +34,15 @@ export function verifySample(sample) {
 }
 
 export function ppvSample(sample) {
-  return http.put(ppvEndpoint, sample);
+  return http.put(ppvEndpoint, {
+    labno: sample.labno,
+    postprocess_comment: sample.postprocessComment,
+    postprocess_volume: sample.postprocessVolume,
+    sample_color_id: sample.sampleColor,
+    ppv_user_id: sample.user,
+    transparency_id: sample.transparency,
+    type_id: sample.type
+  });
 }
 
 export function editSample(sample) {

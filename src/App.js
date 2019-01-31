@@ -8,11 +8,12 @@ import SampleForm from "./components/sampleForm";
 import verifyForm from "./components/verifyForm";
 import LoginForm from "./components/loginForm";
 import RegisterForm from "./components/registerForm";
-// import ProtectedRoute from "./components/common/protectedRoute";
+import SubmitForm from "./components/submitForm";
+import PPVForm from "./components/ppvForm";
+import ProtectedRoute from "./components/common/protectedRoute";
 import auth from "./services/authService";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import SubmitForm from "./components/submitForm";
 
 class App extends Component {
   state = {};
@@ -34,9 +35,10 @@ class App extends Component {
             <Route path="/register" component={RegisterForm} />
             <Route path="/login" component={LoginForm} />
             <Route path="/logout" component={Logout} />
-            <Route path="/sample/submit" component={SubmitForm} />
-            <Route path="/sample/verify" component={verifyForm} />
-            {/* <ProtectedRoute path="/movies/:id" component={SampleForm} />
+            <ProtectedRoute path="/sample/submit" component={SubmitForm} />
+            <ProtectedRoute path="/sample/verify" component={verifyForm} />
+            <ProtectedRoute path="/sample/ppv" component={PPVForm} />
+            {/* 
             <Route
               // this is how to pass props to route, use render, and the {...props} is because there are some
               // props being passed by Route component, add our custom props after it
